@@ -5,7 +5,7 @@ services:
     container_name: postgres-market
     image: 'postgres:14-alpine'
     env_file:
-      - ./.env
+      - ./.env.server
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
