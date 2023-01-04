@@ -1,0 +1,785 @@
+{
+    "item": [
+        {
+            "id": "3eec63f8-a727-497d-a6c2-487503716c2e",
+            "name": "Favorite Controller get Favorite List",
+            "request": {
+                "name": "Favorite Controller get Favorite List",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "favorites"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "fb218284-826c-42a3-8ec8-76c462f956a6",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "favorites"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "ba59fc18-3c67-4110-9742-8f88b0e8c8e7",
+            "name": "Favorite Controller set Favorite",
+            "request": {
+                "name": "Favorite Controller set Favorite",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "favorites",
+                        ":offerId",
+                        "set"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "-98786829.99068026",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "931c5bf3-34b5-46b8-8efa-4647cffebee3",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "favorites",
+                                ":offerId",
+                                "set"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "-98786829.99068026",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "66b855b6-ef81-4bec-bee5-df97bb813ea8",
+            "name": "Favorite Controller unset Favorite",
+            "request": {
+                "name": "Favorite Controller unset Favorite",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "favorites",
+                        ":offerId",
+                        "unset"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "-98786829.99068026",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "429c1742-2353-463a-8063-676a7280aa02",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "favorites",
+                                ":offerId",
+                                "unset"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "-98786829.99068026",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "54c57f5b-095e-4fee-a40e-b372ae1828a6",
+            "name": "Offer Controller get List",
+            "request": {
+                "name": "Offer Controller get List",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "7887cfad-ab85-451d-b553-41d8ee624a57",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "d76be9e7-7e7b-49b1-b03e-a8ad6e9393b3",
+            "name": "Offer Controller create",
+            "request": {
+                "name": "Offer Controller create",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                    "mode": "raw",
+                    "raw": "{}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [
+                {
+                    "id": "73345014-cb55-425d-8a69-754388780680",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "15fc0642-055d-44f3-b5a6-9ca3358cc644",
+            "name": "Offer Controller get Own List",
+            "request": {
+                "name": "Offer Controller get Own List",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        "own"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "fff4ba21-de13-483a-9253-21e8d26c7f95",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                "own"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "8e5273b1-9ff2-4198-b877-896ce3f628b2",
+            "name": "Offer Controller get One",
+            "request": {
+                "name": "Offer Controller get One",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        ":offerId"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "-98786829.99068026",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "9e779402-dc48-4cca-bc94-8dbc7eb8fee0",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                ":offerId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "-98786829.99068026",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "b02b6ea4-bdae-4f38-9333-065807b202f7",
+            "name": "Offer Controller update",
+            "request": {
+                "name": "Offer Controller update",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        ":offerId"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "-98786829.99068026",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "PATCH",
+                "auth": null,
+                "body": {
+                    "mode": "raw",
+                    "raw": "{}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [
+                {
+                    "id": "0150b733-c4ce-4df5-be8d-a3b5a6cc63d0",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                ":offerId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "-98786829.99068026",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "3b8431a5-88ee-46f1-859e-690bb8be46b4",
+            "name": "Offer Controller delete",
+            "request": {
+                "name": "Offer Controller delete",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        ":offerId"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "-98786829.99068026",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "method": "DELETE",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "7858d45c-7402-4323-b9f9-bd80f91c14ed",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                ":offerId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "-98786829.99068026",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "a4a0d53c-3738-42ca-a274-022b7bea0a72",
+            "name": "Auth Controller google Login",
+            "request": {
+                "name": "Auth Controller google Login",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "auth",
+                        "google"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "58fc47be-f5b6-4d94-9ad3-6ecdac842c13",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "auth",
+                                "google"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "38ef7272-7fe2-42ee-ab8f-d83385d44dac",
+            "name": "Auth Controller google Redirect",
+            "request": {
+                "name": "Auth Controller google Redirect",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "auth",
+                        "google",
+                        "redirect"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "3b4572a6-033d-4df3-9d55-2ef5ac94fe1c",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "auth",
+                                "google",
+                                "redirect"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "type": "string",
+            "value": "/",
+            "key": "baseUrl"
+        }
+    ],
+    "info": {
+        "_postman_id": "27ec508f-8295-4021-80a3-8d2b8980068c",
+        "name": "Cround Compiler API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "Cround Compiler Structure API",
+            "type": "text/plain"
+        }
+    }
+}
