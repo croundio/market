@@ -1,17 +1,23 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Offer } from '../offer/offer.entity';
-import { Exclude, Expose, Type } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
-@Exclude()
+@Expose()
 export class Category {
   @PrimaryGeneratedColumn()
   @Type(() => Number)
+  @ApiProperty()
   id: number;
 
-  @Expose()
   @Column('varchar')
+  @ApiProperty()
   name: string;
+
+  @Column('varchar')
+  @ApiProperty()
+  slug: string;
 
   @OneToMany(() => Offer, (offer) => offer.category)
   offers: Offer[];

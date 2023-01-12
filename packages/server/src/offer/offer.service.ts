@@ -1,32 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Offer } from './offer.entity';
-import { FindManyOptions, MoreThan, Repository, UpdateResult } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
-import { OfferStatusEnum } from './enum';
+import { FindManyOptions, UpdateResult } from 'typeorm';
 import { ListDto } from './dto/list.dto';
 import { OwnListDto } from './dto/own-list.dto';
+import { OfferRepository } from './offer.repository';
+import { OfferStatusEnum } from './enum';
 
 @Injectable()
 export class OfferService {
-  constructor(@InjectRepository(Offer) private offerRepo: Repository<Offer>) {}
+  constructor(private offerRepo: OfferRepository) {}
 
-  async getActiveList(params: ListDto): Promise<Offer[]> {
-    const options: FindManyOptions<Offer> = {
-      relations: {
-        category: true,
-        owner: true,
-      },
-      where: {
-        status: OfferStatusEnum.ACTIVE,
-      },
-      order: { id: params.order },
-      take: params.limit,
-    };
-
-    if (params.cursor) {
-      options.where = { ...options.where, id: MoreThan(params.cursor) };
-    }
-    return this.offerRepo.find(options);
+  async getActiveList(params: ListDto, userId?: number): Promise<Offer[]> {
+    return this.offerRepo.getActiveList(params, userId);
   }
 
   async getOwnList(userId: number, params: OwnListDto): Promise<Offer[]> {
@@ -47,11 +32,13 @@ export class OfferService {
     return this.offerRepo.find(options);
   }
 
-  async getOne(offerId: number): Promise<Offer> {
+  async getOwnCount(userId: number): Promise<object> {
+    return this.offerRepo.countByCategoryForUser(userId);
+  }
+
+  async getOne(offerId: number, userId?: number): Promise<Offer> {
     try {
-      return await this.offerRepo.findOneOrFail({
-        where: { id: offerId },
-      });
+      return await this.offerRepo.getOneOrFail(offerId, userId);
     } catch (e) {
       throw new NotFoundException(`Offer with id=${offerId} not found`);
     }
@@ -64,13 +51,45 @@ export class OfferService {
   async update(offerId: number, offer: Offer, userId: number): Promise<Offer> {
     const fromDb = await this.getOneForUser(offerId, userId);
 
-    return this.offerRepo.save({ ...fromDb, ...offer });
+    return this.offerRepo.save({
+      ...fromDb,
+      ...offer,
+      status: OfferStatusEnum.WAITING,
+    });
   }
 
-  async delete(offerId: number, userId: number): Promise<UpdateResult> {
+  async activate(offerId: number, userId: number): Promise<boolean> {
     const fromDb = await this.getOneForUser(offerId, userId);
 
-    return this.offerRepo.softDelete(fromDb);
+    if (fromDb.status === OfferStatusEnum.DEACTIVATE) {
+      await this.offerRepo.save({
+        ...fromDb,
+        status: OfferStatusEnum.ACTIVE,
+      });
+    }
+
+    return true;
+  }
+
+  async deactivate(offerId: number, userId: number): Promise<boolean> {
+    const fromDb = await this.getOneForUser(offerId, userId);
+
+    if (fromDb.status === OfferStatusEnum.ACTIVE) {
+      await this.offerRepo.save({
+        ...fromDb,
+        status: OfferStatusEnum.DEACTIVATE,
+      });
+    }
+
+    return true;
+  }
+
+  async delete(offerId: number, userId: number): Promise<boolean> {
+    const fromDb = await this.getOneForUser(offerId, userId);
+
+    await this.offerRepo.softRemove(fromDb);
+
+    return true;
   }
 
   async getOneForUser(offerId: number, userId: number): Promise<Offer> {

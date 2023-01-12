@@ -8,33 +8,37 @@ import {
 } from 'typeorm';
 import { Offer } from '../offer/offer.entity';
 import { Exclude, Expose, Type } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
-@Expose()
+@Exclude()
 export class User {
   @PrimaryGeneratedColumn()
   @Type(() => Number)
+  @ApiProperty()
+  @Expose()
   id: number;
 
-  @Exclude()
+  @ApiProperty()
+  @Expose()
   @Column('varchar')
   email: string;
 
   @Column('varchar')
+  @ApiProperty()
+  @Expose()
   name: string;
 
-  @Exclude()
   @Column('varchar')
   googleId: string;
 
-  @Exclude()
   @Column('boolean', { default: true })
   isActive: boolean;
 
   @OneToMany(() => Offer, (offer) => offer.owner)
   offers: Offer[];
 
-  @ManyToMany(() => Offer)
+  @ManyToMany(() => Offer, (offer) => offer.favorites)
   @JoinTable({
     name: 'favorites',
     joinColumn: {

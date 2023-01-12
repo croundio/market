@@ -21,6 +21,163 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
+/**
+ * 
+ * @export
+ * @interface Category
+ */
+export interface Category {
+    /**
+     * 
+     * @type {number}
+     * @memberof Category
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Category
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Category
+     */
+    'slug': string;
+}
+/**
+ * 
+ * @export
+ * @interface Offer
+ */
+export interface Offer {
+    /**
+     * 
+     * @type {number}
+     * @memberof Offer
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Offer
+     */
+    'title': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Offer
+     */
+    'description': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Offer
+     */
+    'categoryId': number;
+    /**
+     * 
+     * @type {Category}
+     * @memberof Offer
+     */
+    'category': Category;
+    /**
+     * 
+     * @type {number}
+     * @memberof Offer
+     */
+    'price': number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Offer
+     */
+    'isUsed': boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Offer
+     */
+    'images'?: Array<string>;
+    /**
+     * 
+     * @type {OfferStatusEnum}
+     * @memberof Offer
+     */
+    'status': OfferStatusEnum;
+    /**
+     * 
+     * @type {Date}
+     * @memberof Offer
+     */
+    'createdAt': Date;
+    /**
+     * 
+     * @type {Date}
+     * @memberof Offer
+     */
+    'updatedAt': Date;
+    /**
+     * 
+     * @type {number}
+     * @memberof Offer
+     */
+    'ownerId': number;
+    /**
+     * 
+     * @type {User}
+     * @memberof Offer
+     */
+    'owner': User;
+    /**
+     * 
+     * @type {Array<User>}
+     * @memberof Offer
+     */
+    'favorites'?: Array<User>;
+}
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+
+export const OfferStatusEnum = {
+    ACTIVE: 'ACTIVE',
+    WAITING: 'WAITING',
+    DEACTIVATE: 'DEACTIVATE',
+    CANCELED: 'CANCELED'
+} as const;
+
+export type OfferStatusEnum = typeof OfferStatusEnum[keyof typeof OfferStatusEnum];
+
+
+/**
+ * 
+ * @export
+ * @interface User
+ */
+export interface User {
+    /**
+     * 
+     * @type {number}
+     * @memberof User
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    'name': string;
+}
 
 /**
  * DefaultApi - axios parameter creator
@@ -64,6 +221,35 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          */
         authControllerGoogleRedirect: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/auth/google/redirect`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        categoryControllerGetList: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/categories`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -183,13 +369,46 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {object} body 
+         * @param {number} offerId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerCreate: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('offerControllerCreate', 'body', body)
+        offerControllerActivate: async (offerId: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'offerId' is not null or undefined
+            assertParamExists('offerControllerActivate', 'offerId', offerId)
+            const localVarPath = `/api/offers/{offerId}/activate`
+                .replace(`{${"offerId"}}`, encodeURIComponent(String(offerId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {Offer} offer 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        offerControllerCreate: async (offer: Offer, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'offer' is not null or undefined
+            assertParamExists('offerControllerCreate', 'offer', offer)
             const localVarPath = `/api/offers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -209,7 +428,40 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(offer, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {number} offerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        offerControllerDeactivate: async (offerId: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'offerId' is not null or undefined
+            assertParamExists('offerControllerDeactivate', 'offerId', offerId)
+            const localVarPath = `/api/offers/{offerId}/deactivate`
+                .replace(`{${"offerId"}}`, encodeURIComponent(String(offerId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -316,6 +568,35 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        offerControllerGetOwnCount: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/offers/own/count`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
         offerControllerGetOwnList: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/offers/own`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -343,15 +624,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {number} offerId 
-         * @param {object} body 
+         * @param {Offer} offer 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerUpdate: async (offerId: number, body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        offerControllerUpdate: async (offerId: number, offer: Offer, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'offerId' is not null or undefined
             assertParamExists('offerControllerUpdate', 'offerId', offerId)
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('offerControllerUpdate', 'body', body)
+            // verify required parameter 'offer' is not null or undefined
+            assertParamExists('offerControllerUpdate', 'offer', offer)
             const localVarPath = `/api/offers/{offerId}`
                 .replace(`{${"offerId"}}`, encodeURIComponent(String(offerId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -372,7 +653,133 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(offer, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        profileControllerGetProfile: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/profile`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {object} body 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        profileControllerUpdateProfile: async (body: object, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'body' is not null or undefined
+            assertParamExists('profileControllerUpdateProfile', 'body', body)
+            const localVarPath = `/api/profile`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} fileName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        storageControllerDeleteFile: async (fileName: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'fileName' is not null or undefined
+            assertParamExists('storageControllerDeleteFile', 'fileName', fileName)
+            const localVarPath = `/api/storage/{fileName}`
+                .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        storageControllerGetFile: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/storage`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -412,7 +819,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async favoriteControllerGetFavoriteList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async categoryControllerGetList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Category>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.categoryControllerGetList(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async favoriteControllerGetFavoriteList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Offer>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.favoriteControllerGetFavoriteList(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -438,12 +854,22 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {object} body 
+         * @param {number} offerId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async offerControllerCreate(body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerCreate(body, options);
+        async offerControllerActivate(offerId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerActivate(offerId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {Offer} offer 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async offerControllerCreate(offer: Offer, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Offer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerCreate(offer, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -452,7 +878,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async offerControllerDelete(offerId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async offerControllerDeactivate(offerId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerDeactivate(offerId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {number} offerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async offerControllerDelete(offerId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerDelete(offerId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -461,7 +897,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async offerControllerGetList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async offerControllerGetList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Offer>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerGetList(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -471,7 +907,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async offerControllerGetOne(offerId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async offerControllerGetOne(offerId: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Offer>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerGetOne(offerId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -480,19 +916,66 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async offerControllerGetOwnList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async offerControllerGetOwnCount(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerGetOwnCount(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async offerControllerGetOwnList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Offer>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerGetOwnList(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {number} offerId 
+         * @param {Offer} offer 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async offerControllerUpdate(offerId: number, offer: Offer, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Offer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerUpdate(offerId, offer, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async profileControllerGetProfile(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.profileControllerGetProfile(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async offerControllerUpdate(offerId: number, body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.offerControllerUpdate(offerId, body, options);
+        async profileControllerUpdateProfile(body: object, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.profileControllerUpdateProfile(body, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} fileName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async storageControllerDeleteFile(fileName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.storageControllerDeleteFile(fileName, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async storageControllerGetFile(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.storageControllerGetFile(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -526,7 +1009,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        favoriteControllerGetFavoriteList(options?: any): AxiosPromise<void> {
+        categoryControllerGetList(options?: any): AxiosPromise<Array<Category>> {
+            return localVarFp.categoryControllerGetList(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        favoriteControllerGetFavoriteList(options?: any): AxiosPromise<Array<Offer>> {
             return localVarFp.favoriteControllerGetFavoriteList(options).then((request) => request(axios, basePath));
         },
         /**
@@ -549,12 +1040,21 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {object} body 
+         * @param {number} offerId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerCreate(body: object, options?: any): AxiosPromise<void> {
-            return localVarFp.offerControllerCreate(body, options).then((request) => request(axios, basePath));
+        offerControllerActivate(offerId: number, options?: any): AxiosPromise<void> {
+            return localVarFp.offerControllerActivate(offerId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {Offer} offer 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        offerControllerCreate(offer: Offer, options?: any): AxiosPromise<Offer> {
+            return localVarFp.offerControllerCreate(offer, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -562,7 +1062,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerDelete(offerId: number, options?: any): AxiosPromise<void> {
+        offerControllerDeactivate(offerId: number, options?: any): AxiosPromise<void> {
+            return localVarFp.offerControllerDeactivate(offerId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {number} offerId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        offerControllerDelete(offerId: number, options?: any): AxiosPromise<object> {
             return localVarFp.offerControllerDelete(offerId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -570,7 +1079,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerGetList(options?: any): AxiosPromise<void> {
+        offerControllerGetList(options?: any): AxiosPromise<Array<Offer>> {
             return localVarFp.offerControllerGetList(options).then((request) => request(axios, basePath));
         },
         /**
@@ -579,7 +1088,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerGetOne(offerId: number, options?: any): AxiosPromise<void> {
+        offerControllerGetOne(offerId: number, options?: any): AxiosPromise<Offer> {
             return localVarFp.offerControllerGetOne(offerId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -587,18 +1096,60 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerGetOwnList(options?: any): AxiosPromise<void> {
+        offerControllerGetOwnCount(options?: any): AxiosPromise<object> {
+            return localVarFp.offerControllerGetOwnCount(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        offerControllerGetOwnList(options?: any): AxiosPromise<Array<Offer>> {
             return localVarFp.offerControllerGetOwnList(options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {number} offerId 
+         * @param {Offer} offer 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        offerControllerUpdate(offerId: number, offer: Offer, options?: any): AxiosPromise<Offer> {
+            return localVarFp.offerControllerUpdate(offerId, offer, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        profileControllerGetProfile(options?: any): AxiosPromise<User> {
+            return localVarFp.profileControllerGetProfile(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        offerControllerUpdate(offerId: number, body: object, options?: any): AxiosPromise<void> {
-            return localVarFp.offerControllerUpdate(offerId, body, options).then((request) => request(axios, basePath));
+        profileControllerUpdateProfile(body: object, options?: any): AxiosPromise<User> {
+            return localVarFp.profileControllerUpdateProfile(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} fileName 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        storageControllerDeleteFile(fileName: string, options?: any): AxiosPromise<void> {
+            return localVarFp.storageControllerDeleteFile(fileName, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        storageControllerGetFile(options?: any): AxiosPromise<void> {
+            return localVarFp.storageControllerGetFile(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -636,6 +1187,16 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
+    public categoryControllerGetList(options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).categoryControllerGetList(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
     public favoriteControllerGetFavoriteList(options?: AxiosRequestConfig) {
         return DefaultApiFp(this.configuration).favoriteControllerGetFavoriteList(options).then((request) => request(this.axios, this.basePath));
     }
@@ -664,13 +1225,35 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @param {object} body 
+     * @param {number} offerId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public offerControllerCreate(body: object, options?: AxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).offerControllerCreate(body, options).then((request) => request(this.axios, this.basePath));
+    public offerControllerActivate(offerId: number, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).offerControllerActivate(offerId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {Offer} offer 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public offerControllerCreate(offer: Offer, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).offerControllerCreate(offer, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} offerId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public offerControllerDeactivate(offerId: number, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).offerControllerDeactivate(offerId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -711,6 +1294,16 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
+    public offerControllerGetOwnCount(options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).offerControllerGetOwnCount(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
     public offerControllerGetOwnList(options?: AxiosRequestConfig) {
         return DefaultApiFp(this.configuration).offerControllerGetOwnList(options).then((request) => request(this.axios, this.basePath));
     }
@@ -718,13 +1311,55 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @param {number} offerId 
+     * @param {Offer} offer 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public offerControllerUpdate(offerId: number, offer: Offer, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).offerControllerUpdate(offerId, offer, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public profileControllerGetProfile(options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).profileControllerGetProfile(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public offerControllerUpdate(offerId: number, body: object, options?: AxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).offerControllerUpdate(offerId, body, options).then((request) => request(this.axios, this.basePath));
+    public profileControllerUpdateProfile(body: object, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).profileControllerUpdateProfile(body, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} fileName 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public storageControllerDeleteFile(fileName: string, options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).storageControllerDeleteFile(fileName, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public storageControllerGetFile(options?: AxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).storageControllerGetFile(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

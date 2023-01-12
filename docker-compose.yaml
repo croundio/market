@@ -13,6 +13,17 @@ services:
     networks:
       - webnet
 
+  minio:
+    restart: unless-stopped
+    image: minio/minio
+    volumes:
+      - ./minio/data:/data
+    env_file:
+      - ./.env.server
+    ports:
+      - "${MINIO_PORT}:9000"
+    command: server /data
+
 networks:
   webnet:
     driver: bridge

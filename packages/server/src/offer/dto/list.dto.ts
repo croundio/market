@@ -1,6 +1,5 @@
 import { IsInt, IsOptional, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
-import { FindOptionsOrderValue } from 'typeorm';
 
 export class ListDto {
   @IsInt()
@@ -14,5 +13,9 @@ export class ListDto {
 
   @IsString()
   @IsOptional()
-  order?: FindOptionsOrderValue = 'ASC';
+  order?: 'ASC' | 'DESC' = 'ASC';
+
+  @IsString()
+  @IsOptional()
+  category?: string;
 }

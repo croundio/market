@@ -1,7 +1,7 @@
 {
     "item": [
         {
-            "id": "3eec63f8-a727-497d-a6c2-487503716c2e",
+            "id": "19995ab4-8dc0-4b91-8942-e3c5786ca024",
             "name": "Favorite Controller get Favorite List",
             "request": {
                 "name": "Favorite Controller get Favorite List",
@@ -22,7 +22,7 @@
             },
             "response": [
                 {
-                    "id": "fb218284-826c-42a3-8ec8-76c462f956a6",
+                    "id": "9c931b54-29f5-4b7c-98e6-e04ef794ada1",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -57,7 +57,7 @@
             }
         },
         {
-            "id": "ba59fc18-3c67-4110-9742-8f88b0e8c8e7",
+            "id": "eaca8671-19fd-468a-bc09-e94ddcdec8f3",
             "name": "Favorite Controller set Favorite",
             "request": {
                 "name": "Favorite Controller set Favorite",
@@ -77,7 +77,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "-98786829.99068026",
+                            "value": "44449935.39510983",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -88,7 +88,7 @@
             },
             "response": [
                 {
-                    "id": "931c5bf3-34b5-46b8-8efa-4647cffebee3",
+                    "id": "68c502c8-e97e-4230-8e7f-7a3e56b16ba5",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -105,7 +105,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "-98786829.99068026",
+                                    "value": "44449935.39510983",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -133,7 +133,7 @@
             }
         },
         {
-            "id": "66b855b6-ef81-4bec-bee5-df97bb813ea8",
+            "id": "d23e8ddc-86bc-4dd2-a246-9846b98c96b5",
             "name": "Favorite Controller unset Favorite",
             "request": {
                 "name": "Favorite Controller unset Favorite",
@@ -153,7 +153,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "-98786829.99068026",
+                            "value": "44449935.39510983",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -164,7 +164,7 @@
             },
             "response": [
                 {
-                    "id": "429c1742-2353-463a-8063-676a7280aa02",
+                    "id": "3681defe-df19-4e4f-a22e-85fc68f93989",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -181,7 +181,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "-98786829.99068026",
+                                    "value": "44449935.39510983",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -209,7 +209,142 @@
             }
         },
         {
-            "id": "54c57f5b-095e-4fee-a40e-b372ae1828a6",
+            "id": "2f58b8c1-0109-4db9-a612-e128510065de",
+            "name": "Profile Controller get Profile",
+            "request": {
+                "name": "Profile Controller get Profile",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "profile"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "98409e8e-c435-4590-b91d-ac74d7487e64",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "profile"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "1de4431b-094d-4c31-94fe-385053e5e5fb",
+            "name": "Profile Controller update Profile",
+            "request": {
+                "name": "Profile Controller update Profile",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "profile"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "PATCH",
+                "auth": null,
+                "body": {
+                    "mode": "raw",
+                    "raw": "{}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [
+                {
+                    "id": "04f19c92-9bca-4943-a50c-b587940660aa",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "profile"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "PATCH",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "3369a18f-e4a6-4484-94bc-3ef6a98f0bc3",
             "name": "Offer Controller get List",
             "request": {
                 "name": "Offer Controller get List",
@@ -230,7 +365,7 @@
             },
             "response": [
                 {
-                    "id": "7887cfad-ab85-451d-b553-41d8ee624a57",
+                    "id": "8050d29e-402e-48f0-a379-15cd2ea1faaf",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -265,7 +400,7 @@
             }
         },
         {
-            "id": "d76be9e7-7e7b-49b1-b03e-a8ad6e9393b3",
+            "id": "e77366c6-42d4-427a-bd39-8551e6b48398",
             "name": "Offer Controller create",
             "request": {
                 "name": "Offer Controller create",
@@ -301,7 +436,7 @@
             },
             "response": [
                 {
-                    "id": "73345014-cb55-425d-8a69-754388780680",
+                    "id": "651fb75d-d605-4f52-b8fa-64e62c46df89",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -344,7 +479,7 @@
             }
         },
         {
-            "id": "15fc0642-055d-44f3-b5a6-9ca3358cc644",
+            "id": "264b8517-f287-4d64-9fd8-8870e0e3e987",
             "name": "Offer Controller get Own List",
             "request": {
                 "name": "Offer Controller get Own List",
@@ -366,7 +501,7 @@
             },
             "response": [
                 {
-                    "id": "fff4ba21-de13-483a-9253-21e8d26c7f95",
+                    "id": "cda70d05-5513-4f90-963d-1b51f9dd2d8d",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -402,7 +537,7 @@
             }
         },
         {
-            "id": "8e5273b1-9ff2-4198-b877-896ce3f628b2",
+            "id": "e43bcb28-4d8f-443e-b9fe-ec3bec71a41b",
             "name": "Offer Controller get One",
             "request": {
                 "name": "Offer Controller get One",
@@ -421,7 +556,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "-98786829.99068026",
+                            "value": "44449935.39510983",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -432,7 +567,7 @@
             },
             "response": [
                 {
-                    "id": "9e779402-dc48-4cca-bc94-8dbc7eb8fee0",
+                    "id": "7da9b5f8-1598-45d6-93f8-61020dd568ef",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -448,7 +583,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "-98786829.99068026",
+                                    "value": "44449935.39510983",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -476,7 +611,7 @@
             }
         },
         {
-            "id": "b02b6ea4-bdae-4f38-9333-065807b202f7",
+            "id": "37e25457-49ae-4475-9265-cde8afd4bf1e",
             "name": "Offer Controller update",
             "request": {
                 "name": "Offer Controller update",
@@ -495,7 +630,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "-98786829.99068026",
+                            "value": "44449935.39510983",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -521,7 +656,7 @@
             },
             "response": [
                 {
-                    "id": "0150b733-c4ce-4df5-be8d-a3b5a6cc63d0",
+                    "id": "62536c47-fdd3-4121-bef4-2a677215d830",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -537,7 +672,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "-98786829.99068026",
+                                    "value": "44449935.39510983",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -573,7 +708,7 @@
             }
         },
         {
-            "id": "3b8431a5-88ee-46f1-859e-690bb8be46b4",
+            "id": "905dbbe5-5203-4e2f-b0d0-cdba82e44f97",
             "name": "Offer Controller delete",
             "request": {
                 "name": "Offer Controller delete",
@@ -592,7 +727,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "-98786829.99068026",
+                            "value": "44449935.39510983",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -603,7 +738,7 @@
             },
             "response": [
                 {
-                    "id": "7858d45c-7402-4323-b9f9-bd80f91c14ed",
+                    "id": "cc68f689-ccb1-432b-a867-aae686eae047",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -619,7 +754,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "-98786829.99068026",
+                                    "value": "44449935.39510983",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -647,7 +782,7 @@
             }
         },
         {
-            "id": "a4a0d53c-3738-42ca-a274-022b7bea0a72",
+            "id": "7fe46434-1182-4eea-a8a2-e67ad4af7b88",
             "name": "Auth Controller google Login",
             "request": {
                 "name": "Auth Controller google Login",
@@ -669,7 +804,7 @@
             },
             "response": [
                 {
-                    "id": "58fc47be-f5b6-4d94-9ad3-6ecdac842c13",
+                    "id": "7def536d-5ad6-4b15-9c2f-abdc045c9167",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -705,7 +840,7 @@
             }
         },
         {
-            "id": "38ef7272-7fe2-42ee-ab8f-d83385d44dac",
+            "id": "bb4c64e4-19d0-4af3-93e7-c397085ab34a",
             "name": "Auth Controller google Redirect",
             "request": {
                 "name": "Auth Controller google Redirect",
@@ -728,7 +863,7 @@
             },
             "response": [
                 {
-                    "id": "3b4572a6-033d-4df3-9d55-2ef5ac94fe1c",
+                    "id": "6d836d76-6ba3-401e-9c59-47161b5ae9f9",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -774,7 +909,7 @@
         }
     ],
     "info": {
-        "_postman_id": "27ec508f-8295-4021-80a3-8d2b8980068c",
+        "_postman_id": "43feaeb3-e29a-4ca9-bb84-930d0f13c137",
         "name": "Cround Compiler API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

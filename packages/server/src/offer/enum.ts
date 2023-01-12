@@ -1,6 +1,6 @@
 export enum OfferStatusEnum {
   ACTIVE = 'ACTIVE',
   WAITING = 'WAITING',
-  INACTIVE = 'INACTIVE',
+  DEACTIVATE = 'DEACTIVATE',
   CANCELED = 'CANCELED',
 }

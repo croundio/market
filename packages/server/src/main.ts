@@ -5,12 +5,14 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as fs from 'fs';
 import { join } from 'path';
 import { AppModule } from './app.module';
+import { json } from 'body-parser';
 
 (async (): Promise<void> => {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
   app.setGlobalPrefix(Env.API_PREFIX);
+  app.use(json({ limit: '5mb' }));
   app.useGlobalPipes(
     new ValidationPipe({ forbidUnknownValues: true, whitelist: true }),
   );

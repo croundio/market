@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { FindOneOptions, Repository } from 'typeorm';
 import { RegisterGoogleUserDto } from './dto/register-google-user.dto';
 import { Offer } from '../offer/offer.entity';
 import { OfferService } from '../offer/offer.service';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
 export class UserService {
@@ -28,7 +29,9 @@ export class UserService {
         id: userId,
       },
       relations: {
-        favoriteOffers: true,
+        favoriteOffers: {
+          category: true,
+        },
       },
     });
 
@@ -78,5 +81,23 @@ export class UserService {
     await this.repo.save(user);
 
     return true;
+  }
+
+  async getProfile(userId: number): Promise<User> {
+    try {
+      return await this.repo.findOneOrFail({
+        where: {
+          id: userId,
+        },
+      });
+    } catch (e) {
+      throw new NotFoundException(`Profile for user ${userId} not found`);
+    }
+  }
+
+  async updateProfile(userId: number, dto: UpdateProfileDto): Promise<User> {
+    const user = await this.getProfile(userId);
+
+    return this.repo.save({ ...user, ...dto });
   }
 }

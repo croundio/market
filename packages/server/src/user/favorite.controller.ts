@@ -1,9 +1,17 @@
-import { Controller, Get, Param, Patch, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  UseGuards,
+} from '@nestjs/common';
 import { User } from '../auth/decorator/user.decorator';
 import { PayloadDto } from '../auth/dto/payload.dto';
 import { JwtGuard } from '../auth/guard/jwt.guard';
 import { UserService } from './user.service';
 import { Offer } from '../offer/offer.entity';
+import { ApiOkResponse } from '@nestjs/swagger';
 
 @Controller('favorites')
 export class FavoriteController {
@@ -11,6 +19,7 @@ export class FavoriteController {
 
   @Get()
   @UseGuards(JwtGuard)
+  @ApiOkResponse({ type: [Offer] })
   getFavoriteList(@User() user: PayloadDto): Promise<Offer[]> {
     return this.service.getFavoriteOffers(user.id);
   }
@@ -19,7 +28,7 @@ export class FavoriteController {
   @UseGuards(JwtGuard)
   setFavorite(
     @User() user: PayloadDto,
-    @Param('offerId') offerId: number,
+    @Param('offerId', new ParseIntPipe()) offerId: number,
   ): Promise<boolean> {
     return this.service.setFavorite(user.id, offerId);
   }
@@ -28,7 +37,7 @@ export class FavoriteController {
   @UseGuards(JwtGuard)
   unsetFavorite(
     @User() user: PayloadDto,
-    @Param('offerId') offerId: number,
+    @Param('offerId', new ParseIntPipe()) offerId: number,
   ): Promise<boolean> {
     return this.service.unsetFavorite(user.id, offerId);
   }

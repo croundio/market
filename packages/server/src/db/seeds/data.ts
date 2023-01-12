@@ -7,18 +7,22 @@ const categories: Partial<Category>[] = [
   {
     id: 1,
     name: 'Телефони',
+    slug: 'phone',
   },
   {
     id: 2,
     name: 'Авто',
+    slug: 'auto',
   },
   {
     id: 3,
     name: 'Нерухомість',
+    slug: 'realty',
   },
   {
     id: 4,
     name: 'Інше',
+    slug: 'other',
   },
 ];
 const users: Partial<User>[] = [
@@ -80,7 +84,7 @@ const offers: Partial<Offer>[] = [
     categoryId: 3,
     price: 100000,
     isUsed: true,
-    status: OfferStatusEnum.INACTIVE,
+    status: OfferStatusEnum.DEACTIVATE,
     ownerId: 1,
   },
 ];

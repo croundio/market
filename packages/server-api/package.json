@@ -1,6 +1,6 @@
 {
   "name": "@market/server-api",
-  "version": "0.0.1",
+  "version": "1.0",
   "description": "OpenAPI client for @market/server-api",
   "author": "OpenAPI-Generator Contributors",
   "repository": {

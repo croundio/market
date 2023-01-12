@@ -1,9 +1,13 @@
-import { Controller, Get, UseGuards, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  HttpStatus,
+  Res,
+  Req,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { GoogleGuard } from './guard/google.guard';
-import { User } from './decorator/user.decorator';
-import { RegisterGoogleUserDto } from '../user/dto/register-google-user.dto';
-import { LoginSerialize } from './serialize/login.serialize';
 
 @Controller('auth')
 export class AuthController {
@@ -17,9 +21,11 @@ export class AuthController {
 
   @Get('/google/redirect')
   @UseGuards(GoogleGuard)
-  async googleRedirect(
-    @User() user: RegisterGoogleUserDto,
-  ): Promise<LoginSerialize> {
-    return this.service.loginOrRegister(user);
+  async googleRedirect(@Res() res, @Req() req) {
+    const result = await this.service.loginOrRegister(req.user);
+
+    return res.redirect(
+      `http://localhost:3000/login/google?access_token=${result.access_token}`,
+    );
   }
 }
