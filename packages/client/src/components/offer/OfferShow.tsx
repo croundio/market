@@ -17,6 +17,7 @@ import { useProfile } from "../profile/useProfile";
 import { RouteEnum } from "../../routing/router";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { ImageCarousel } from "../image/ImageCarousel";
 
 type OfferShowParams = {
   offerId: number;
@@ -71,7 +72,7 @@ export const OfferShow = ({ offerId }: OfferShowParams) => {
             {offer.price} ₴
           </Typography>
         </Box>
-        <img src="/no_image.jpg" loading="lazy" alt="no_image" width={250} />
+        <ImageCarousel images={offer.images} />
         <Typography variant="h6">{offer.title}</Typography>
         <Box>
           <Chip label={offer.category.name} variant="outlined" size="small" />

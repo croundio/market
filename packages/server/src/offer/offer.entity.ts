@@ -62,8 +62,7 @@ export class Offer {
   @ApiProperty()
   isUsed: boolean;
 
-  @IsArray()
-  @IsString()
+  @IsString({ each: true })
   @ApiPropertyOptional({ type: [String] })
   @Column('simple-array', { nullable: true })
   images: string[] = [];

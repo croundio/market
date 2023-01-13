@@ -12,7 +12,7 @@ import { useFormik } from "formik";
 import { Category, Offer } from "@market/server-api";
 import { useEffect, useState } from "react";
 import { useDataProvider } from "../../provider/dataProvider";
-import { ImageField } from "../field/ImageField";
+import { ImageInputList } from "../image/ImageInputList";
 
 type OfferFormProps = {
   submitHandler: (offer: any) => void;
@@ -46,7 +46,7 @@ export const OfferForm = ({ submitHandler, initial }: OfferFormProps) => {
           value={formik.values.title}
           onChange={formik.handleChange}
         />
-        <ImageField
+        <ImageInputList
           value={formik.values.images}
           onChange={(value) => {
             formik.setFieldValue("images", value);

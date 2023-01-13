@@ -6,10 +6,11 @@ import {
 } from "@market/server-api";
 import { lsProvider } from "./localStorageProvider";
 import { useSnackbar } from "notistack";
+import { server } from "../config/server";
 
 const api = new DefaultApi(
   new Configuration({
-    basePath: "http://localhost:8811",
+    basePath: server.apiUrl,
   })
 );
 
@@ -135,7 +136,8 @@ export const useDataProvider = () => {
       data.append("file", image);
       return api
         .storageControllerCreateImage({ data, ...withAuth() })
-        .then((res) => res.data);
+        .then((res) => res.data)
+        .catch(handleError);
     },
   };
 };

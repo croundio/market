@@ -40,25 +40,20 @@ export class StorageService {
     };
     const fileName: string = hashedFileName + ext;
     const fileBuffer = file.buffer;
-    this.client.putObject(
-      this.bucket,
-      fileName,
-      fileBuffer,
-      metaData,
-      function (err) {
-        console.log(err);
-        if (err)
-          throw new HttpException(
-            'Error  uploading file',
-            HttpStatus.BAD_REQUEST,
-          );
-      },
-    );
 
-    return fileName;
+    try {
+      await this.client.putObject(this.bucket, fileName, fileBuffer, metaData);
+    } catch (e) {
+      console.log(e);
+      throw new HttpException('Error  uploading file', HttpStatus.BAD_REQUEST);
+    }
+
+    return `${Env.MINIO_ENDPOINT === 'localhost' ? 'http://' : ''}${
+      Env.MINIO_ENDPOINT
+    }:${Env.MINIO_PORT}/${Env.MINIO_BUCKET}/${fileName}`;
   }
 
-  private initBucket(): void {
+  private async initBucket() {
     const policy = {
       Version: '2012-10-17',
       Statement: [
@@ -67,11 +62,7 @@ export class StorageService {
           Principal: {
             AWS: ['*'],
           },
-          Action: [
-            's3:ListBucketMultipartUploads',
-            's3:GetBucketLocation',
-            's3:ListBucket',
-          ],
+          Action: ['s3:GetBucketLocation', 's3:ListBucket'],
           Resource: [`arn:aws:s3:::${this.bucket}`],
         },
         {
@@ -79,23 +70,15 @@ export class StorageService {
           Principal: {
             AWS: ['*'],
           },
-          Action: [
-            's3:PutObject',
-            's3:AbortMultipartUpload',
-            's3:DeleteObject',
-            's3:GetObject',
-            's3:ListMultipartUploadParts',
-          ],
-          Resource: [`arn:aws:s3:::${this.bucket}/*`], // Change this according to your bucket name
+          Action: ['s3:GetObject', 's3:ListMultipartUploadParts'],
+          Resource: [`arn:aws:s3:::${this.bucket}/*`],
         },
       ],
     };
 
-    this.client.bucketExists(this.bucket).then((exists: boolean) => {
-      if (!exists) {
-        this.client.makeBucket(this.bucket);
-        this.client.setBucketPolicy(this.bucket, JSON.stringify(policy));
-      }
-    });
+    if (!(await this.client.bucketExists(this.bucket))) {
+      await this.client.makeBucket(this.bucket);
+      await this.client.setBucketPolicy(this.bucket, JSON.stringify(policy));
+    }
   }
 }

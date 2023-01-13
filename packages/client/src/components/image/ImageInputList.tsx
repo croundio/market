@@ -16,6 +16,7 @@ import { useCallback, useState } from "react";
 import { useDataProvider } from "../../provider/dataProvider";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { useSnackbar } from "notistack";
+import { ImageSquare } from "./ImageSquare";
 
 type ImageValue = ImageType & { loading?: boolean };
 
@@ -23,37 +24,47 @@ type ImageInputProps = {
   maxNumber?: number;
   maxFileSize?: number;
   acceptType?: string[];
-  value: ImageValue[];
-  onChange: (value: ImageValue, index?: number[]) => void;
+  value: string[];
+  onChange: (images: string[]) => void;
   imageHeight?: number;
 };
 
-export const ImageField = ({
+export const ImageInputList = ({
   maxNumber = 5,
   maxFileSize = 1000000,
   acceptType = ["jpg", "png"],
-  value,
+  value: imageList = [],
   onChange,
   imageHeight = 130,
 }: ImageInputProps) => {
   const [refresh, setRefresh] = useState(1);
   const { createImage } = useDataProvider();
   const { enqueueSnackbar } = useSnackbar();
+  const uploadedValues: ImageValue[] = imageList.map((url) => ({
+    dataURL: url,
+  }));
 
-  const imageHandler = (values: ImageValue[], index?: number[]) => {
-    if (index) {
-      index.forEach((i) => {
-        const file = values[i].file;
-        if (file) {
-          values[i].loading = true;
-          createImage(file).then((res) => {
-            values[i].loading = false;
-            setRefresh(Math.random);
-          });
-        }
+  const handleRemove = (index: number) => {
+    onChange(imageList.filter((x, i) => index !== i));
+  };
+  const handleChange = (values: ImageValue[], index?: number[]) => {
+    if (!index) return;
+
+    index.forEach((i) => {
+      const file = values[i].file;
+      if (!file) return;
+
+      values[i].loading = true;
+      setRefresh(Math.random);
+      createImage(file).then((res) => {
+        if (!res) return;
+
+        imageList[i] = res;
+        onChange(imageList);
+        values[i].loading = false;
+        setRefresh(Math.random);
       });
-    }
-    onChange(values, index);
+    });
   };
   const handleErrors = (errors: ErrorsType) => {
     const texts = {
@@ -74,20 +85,14 @@ export const ImageField = ({
       {refresh && (
         <ImageUploading
           multiple
-          value={value}
-          onChange={imageHandler}
+          value={uploadedValues}
+          onChange={handleChange}
           maxNumber={maxNumber}
           maxFileSize={maxFileSize}
           acceptType={acceptType}
           onError={handleErrors}
         >
-          {({
-            imageList,
-            onImageUpload,
-            onImageUpdate,
-            onImageRemove,
-            dragProps,
-          }) => (
+          {({ imageList, onImageUpload, onImageUpdate, dragProps }) => (
             <Box>
               Фото
               <Box
@@ -114,7 +119,7 @@ export const ImageField = ({
                     <ImagePreview
                       image={image}
                       onUpdate={() => onImageUpdate(index)}
-                      onRemove={() => onImageRemove(index)}
+                      onRemove={() => handleRemove(index)}
                       imageHeight={imageHeight}
                     />
                   </Grid>
@@ -123,7 +128,7 @@ export const ImageField = ({
                   <Grid item md={2}>
                     <Box
                       sx={{
-                        height: imageHeight,
+                        height: "100%",
                         backgroundColor: "#eaeaea",
                         display: "flex",
                         justifyContent: "center",
@@ -144,23 +149,7 @@ export const ImageField = ({
                     .fill(null)
                     .map((x, i) => (
                       <Grid key={`fill-${i}`} item md={2}>
-                        <Box
-                          sx={{
-                            position: "relative",
-                            height: imageHeight,
-                            overflow: "hidden",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <img
-                            src="/no_image.jpg"
-                            style={{
-                              maxWidth: "100%",
-                              overflow: "hidden",
-                            }}
-                          />
-                        </Box>
+                        <ImageSquare src="/no_image.jpg" />
                       </Grid>
                     ))}
               </Grid>
@@ -185,6 +174,7 @@ const ImagePreview = ({
   onUpdate,
   imageHeight = 130,
 }: ImagePreviewProps) => {
+  console.log(image.dataURL);
   const [focused, setFocused] = useState(false);
   const handleFocus = useCallback(
     (focused: boolean) => () => {
@@ -197,15 +187,13 @@ const ImagePreview = ({
     <Box
       sx={{
         position: "relative",
-        height: imageHeight,
-        overflow: "hidden",
         display: "flex",
         alignItems: "center",
       }}
       onMouseEnter={handleFocus(true)}
       onMouseLeave={handleFocus(false)}
     >
-      <img src={image.dataURL} alt="" style={{ maxWidth: "100%" }} />
+      <ImageSquare src={image.dataURL} />
       <Box
         sx={{
           position: "absolute",

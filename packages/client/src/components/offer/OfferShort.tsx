@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import { FavoriteButton } from "./FavoriteButton";
 import { Link } from "react-router-dom";
 import { RouteEnum } from "../../routing/router";
+import { ImageSquare } from "../image/ImageSquare";
 
 type OfferShortProps = {
   offer: Offer;
@@ -34,8 +35,8 @@ export const OfferShort = ({
         <Grid container>
           <Grid item md={3}>
             <Link to={RouteEnum.OFFER.replace(":offerId", `${offer.id}`)}>
-              <img
-                src="/no_image.jpg"
+              <ImageSquare
+                src={offer.images?.length ? offer.images[0] : "/no_image.jpg"}
                 loading="lazy"
                 alt="no image"
                 width={imageSize}
