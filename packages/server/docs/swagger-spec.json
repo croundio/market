@@ -321,31 +321,18 @@
     },
     "/api/storage": {
       "post": {
-        "operationId": "StorageController_getFile",
+        "operationId": "StorageController_createImage",
         "parameters": [],
         "responses": {
-          "201": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api/storage/{fileName}": {
-      "delete": {
-        "operationId": "StorageController_deleteFile",
-        "parameters": [
-          {
-            "name": "fileName",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }

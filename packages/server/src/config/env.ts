@@ -26,7 +26,8 @@ export const SchemaBody = z
     MINIO_SECRET_KEY: z.string().min(10),
     MINIO_ENDPOINT: z.string().optional(),
     MINIO_PORT: portValidation,
-    MINIO_BROWSER: z.enum(['off']),
+    MINIO_BROWSER: z.enum(['off', 'on']).optional(),
+    MINIO_BROWSER_PORT: portValidation,
     MINIO_BUCKET: z.string(),
 
     GG_ID: z.string(),

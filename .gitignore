@@ -19,5 +19,5 @@ node_modules
 .env.server
 .env.client
 postgres/*
+minio/*
 lerna-debug.log
-.cround

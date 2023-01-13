@@ -22,7 +22,8 @@ services:
       - ./.env.server
     ports:
       - "${MINIO_PORT}:9000"
-    command: server /data
+      - "${MINIO_BROWSER_PORT}:${MINIO_BROWSER_PORT}"
+    command: server /data --console-address :${MINIO_BROWSER_PORT}
 
 networks:
   webnet:

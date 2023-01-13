@@ -130,5 +130,12 @@ export const useDataProvider = () => {
         .then((res) => res.data)
         .catch(handleError);
     },
+    createImage: (image: File) => {
+      const data = new FormData();
+      data.append("file", image);
+      return api
+        .storageControllerCreateImage({ data, ...withAuth() })
+        .then((res) => res.data);
+    },
   };
 };
