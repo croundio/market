@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { Offer } from '../offer/offer.entity';
 import { Exclude, Expose, Type } from 'class-transformer';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 @Entity()
 @Exclude()
@@ -28,6 +28,11 @@ export class User {
   @ApiProperty()
   @Expose()
   name: string;
+
+  @Column('varchar', { nullable: true })
+  @ApiPropertyOptional()
+  @Expose()
+  image?: string;
 
   @Column('varchar')
   googleId: string;

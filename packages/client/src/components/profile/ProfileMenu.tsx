@@ -3,7 +3,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
-import { Box, Divider } from "@mui/material";
+import { Avatar, Box, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { RouteEnum, routing } from "../../routing/router";
 import { useEffect } from "react";
@@ -41,7 +41,11 @@ export const ProfileMenu = () => {
         sx={{ marginRight: 1 }}
         onClick={handleClick}
       >
-        <AccountCircle fontSize="large" />
+        {profile.image ? (
+          <Avatar src={profile.image} />
+        ) : (
+          <AccountCircle fontSize="large" />
+        )}
       </IconButton>
 
       <Menu

@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "up": "./scripts/start.sh",
-    "start:dev": "yarn up && lerna run --parallel start:dev",
+    "start:dev": "npm run up && lerna run --parallel start:dev",
     "generate:api": "cd packages/server && npm run generate:api && cd ../server-api && npm i && npm run build"
   },
   "devDependencies": {

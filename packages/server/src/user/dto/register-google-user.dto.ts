@@ -1,4 +1,4 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsOptional, IsString } from 'class-validator';
 
 export class RegisterGoogleUserDto {
   @IsString()
@@ -10,4 +10,8 @@ export class RegisterGoogleUserDto {
 
   @IsString()
   name: string;
+
+  @IsOptional()
+  @IsString()
+  image?: string;
 }
