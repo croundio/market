@@ -45,22 +45,42 @@ const users: Partial<User>[] = [
 ];
 const offers: Partial<Offer>[] = [
   {
-    title: 'Домашній Телефон',
-    description:
-      'Продаю власний домашній телефон у відмінному стані. Продаю так як купив нарешті мобільний',
+    title: 'iPhone 11 pro max 256gb',
+    description: `Продам свій iPhone 11 pro max 256 gb midnight green.
+
+      Телефон із чохлом купувався в США. Все оригінальне, нічого не мінялось, в ремонті не був. ICloud видалений, телефон налаштований повністю на продаж. Візуально 10/10, носився завжди в чохлі, подряпин та сколів немає. Завжди на дисплеї було захисне скло. По роботі також ідеально - ніяких претензій не виникало. АКБ - 78% Face ID працює. В роботі на один день хватає з головою.
+      
+      В комплекті ідуть навушники, блочок (американська виделка із переходником на нашу), USB-C кабель, шкіряний чохол. Весь комплект - ОРИГІНАЛ, в т.ч. чохол.
+      
+      Торг в рамках розумного (враховуючи що комплект повний і телефон в ідеальному )
+      або в ЛС тут, або в месенджери по номеру телефону вказаному в оголошенні.`,
+    images: [
+      'http://localhost:9911/market/phone_1.jpg',
+      'http://localhost:9911/market/phone_2.jpg',
+      'http://localhost:9911/market/phone_3.jpg',
+    ],
     categoryId: 1,
-    price: 1,
+    price: 20000,
     isUsed: true,
     status: OfferStatusEnum.ACTIVE,
     ownerId: 1,
   },
   {
-    title: 'Родич з росєї',
-    description: 'Продаю відносини з дальнім родичем',
-    categoryId: 3,
-    price: 0,
+    title: 'Mercedes a170 дизель',
+    description: `Продам хороше авто
+      Без ДТП , всі стекла рідні, не фарбоване (точково прибирались рижики)!!!
+      Мотор 1.7 турбо дизель працює чудово, по кпп ходовій без зауважень!!!
+      Майже нова зимова гума, 2 ключі!!!
+      Будь який вид переоформлення !!!`,
+    images: [
+      'http://localhost:9911/market/auto_1.jpg',
+      'http://localhost:9911/market/auto_2.jpg',
+      'http://localhost:9911/market/auto_3.jpg',
+    ],
+    categoryId: 2,
+    price: 100000,
     isUsed: true,
-    status: OfferStatusEnum.CANCELED,
+    status: OfferStatusEnum.ACTIVE,
     ownerId: 2,
   },
   {
@@ -73,12 +93,13 @@ const offers: Partial<Offer>[] = [
     ownerId: 2,
   },
   {
-    title: 'ВАЗ 2101',
-    description: 'Продаю свою рідну ластівочку',
-    categoryId: 2,
-    price: 10000,
+    title: 'Домашній Телефон',
+    description:
+      'Продаю власний домашній телефон у відмінному стані. Продаю так як купив нарешті мобільний',
+    categoryId: 1,
+    price: 1,
     isUsed: true,
-    status: OfferStatusEnum.WAITING,
+    status: OfferStatusEnum.ACTIVE,
     ownerId: 1,
   },
   {

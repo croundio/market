@@ -79,7 +79,9 @@ export const OfferShow = ({ offerId }: OfferShowParams) => {
         </Box>
         <Typography>Код: #{offer.id}</Typography>
         <Toolbar />
-        <Typography variant="h6">{offer.description}</Typography>
+        <Typography variant="h6" sx={{ whiteSpace: "pre-line" }}>
+          {offer.description}
+        </Typography>
         <Toolbar />
         <Typography variant="caption">
           Додано: {format(new Date(offer.createdAt), "dd-MM-yyyy HH:ii:ss")}
