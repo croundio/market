@@ -45,6 +45,12 @@ export interface Category {
      * @memberof Category
      */
     'slug': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Category
+     */
+    'image': string;
 }
 /**
  * 
@@ -753,39 +759,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @param {string} fileName 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        storageControllerDeleteFile: async (fileName: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'fileName' is not null or undefined
-            assertParamExists('storageControllerDeleteFile', 'fileName', fileName)
-            const localVarPath = `/api/storage/{fileName}`
-                .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -968,16 +941,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.storageControllerCreateImage(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * 
-         * @param {string} fileName 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async storageControllerDeleteFile(fileName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.storageControllerDeleteFile(fileName, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -1141,15 +1104,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         storageControllerCreateImage(options?: any): AxiosPromise<string> {
             return localVarFp.storageControllerCreateImage(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} fileName 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        storageControllerDeleteFile(fileName: string, options?: any): AxiosPromise<void> {
-            return localVarFp.storageControllerDeleteFile(fileName, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1349,17 +1303,6 @@ export class DefaultApi extends BaseAPI {
      */
     public storageControllerCreateImage(options?: AxiosRequestConfig) {
         return DefaultApiFp(this.configuration).storageControllerCreateImage(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} fileName 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public storageControllerDeleteFile(fileName: string, options?: AxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).storageControllerDeleteFile(fileName, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

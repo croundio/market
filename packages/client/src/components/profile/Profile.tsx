@@ -1,9 +1,9 @@
 import { Box, Button } from "@mui/material";
 import * as React from "react";
-import { useProfile } from "./useProfile";
 import { useNavigate } from "react-router-dom";
 import { ProfileMenu } from "./ProfileMenu";
 import { RouteEnum } from "../../routing/router";
+import { useProfile } from "./ProfileContext";
 
 export const Profile = () => {
   const { profile } = useProfile();

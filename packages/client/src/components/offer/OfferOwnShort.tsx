@@ -27,7 +27,7 @@ export const OfferOwnShort = ({ offer }: OfferOwnShortProps) => {
         });
       });
     },
-    []
+    [offer] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   const actions = [

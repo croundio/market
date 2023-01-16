@@ -13,7 +13,7 @@ export const OfferFavoriteList = () => {
     getFavoriteOffers().then((data) => {
       setOffers(data);
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box>

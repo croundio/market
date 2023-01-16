@@ -19,6 +19,10 @@ export class Category {
   @ApiProperty()
   slug: string;
 
+  @Column('varchar')
+  @ApiProperty()
+  image: string;
+
   @OneToMany(() => Offer, (offer) => offer.category)
   offers: Offer[];
 }

@@ -17,7 +17,7 @@ export const ImageCarousel = ({ images = [] }: ImageCarouselProps) => {
     >
       {images.map((image) => (
         <Box>
-          <img src={image} />
+          <img src={image} alt="preview" />
         </Box>
       ))}
     </Carousel>

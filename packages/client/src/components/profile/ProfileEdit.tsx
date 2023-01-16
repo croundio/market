@@ -3,7 +3,8 @@ import { Box, Button, FormGroup, TextField } from "@mui/material";
 import * as React from "react";
 import { useDataProvider } from "../../provider/dataProvider";
 import { useSnackbar } from "notistack";
-import { useProfile } from "./useProfile";
+import { useProfile } from "./ProfileContext";
+import { User } from "@market/server-api";
 
 export const ProfileEdit = () => {
   const { editProfile } = useDataProvider();
@@ -11,7 +12,7 @@ export const ProfileEdit = () => {
   const { profile, refreshProfile } = useProfile();
 
   const formik = useFormik({
-    initialValues: profile,
+    initialValues: profile as User,
     onSubmit: (values) => {
       editProfile(values).then((result: any) => {
         if (result) {

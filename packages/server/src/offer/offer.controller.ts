@@ -8,7 +8,6 @@ import {
   Post,
   Query,
   UseGuards,
-  UseInterceptors,
 } from '@nestjs/common';
 import { OfferService } from './offer.service';
 import { Offer } from './offer.entity';
@@ -18,15 +17,15 @@ import { PayloadDto } from '../auth/dto/payload.dto';
 import { JwtGuard } from '../auth/guard/jwt.guard';
 import { ListDto } from './dto/list.dto';
 import { OwnListDto } from './dto/own-list.dto';
-import { SerializeInterceptor } from '../interseptor/serialize.interceptor';
 import { ApiOkResponse } from '@nestjs/swagger';
+import { Serialize } from '../decorator/serialize.decorator';
 
 @Controller('offers')
 export class OfferController {
   constructor(private service: OfferService) {}
 
   @Get()
-  @UseInterceptors(new SerializeInterceptor(Offer))
+  @Serialize(Offer)
   @ApiOkResponse({ type: [Offer] })
   getList(
     @Query() params: ListDto,
@@ -37,6 +36,7 @@ export class OfferController {
 
   @Get('/own')
   @UseGuards(JwtGuard)
+  @Serialize(Offer)
   @ApiOkResponse({ type: [Offer] })
   getOwnList(
     @User() user: PayloadDto,
@@ -53,6 +53,7 @@ export class OfferController {
   }
 
   @Get('/:offerId')
+  @Serialize(Offer)
   @ApiOkResponse({ type: Offer })
   getOne(
     @User() user: PayloadDto,
@@ -63,6 +64,7 @@ export class OfferController {
 
   @Post()
   @UseGuards(JwtGuard)
+  @Serialize(Offer)
   @ApiOkResponse({ type: Offer })
   create(@User() user: PayloadDto, @Body() dto: Offer): Promise<Offer> {
     return this.service.create(dto, user.id);
@@ -70,6 +72,7 @@ export class OfferController {
 
   @Patch('/:offerId')
   @UseGuards(JwtGuard)
+  @Serialize(Offer)
   @ApiOkResponse({ type: Offer })
   update(
     @User() user: PayloadDto,

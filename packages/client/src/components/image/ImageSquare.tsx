@@ -15,32 +15,31 @@ export const ImageSquare = (
   >
 ) => {
   const ref = useRef<HTMLHeadingElement>(null);
-  const [width, setWidth] = useState<string | number>(0);
+  const [height, setHeight] = useState<string | number>(0);
 
   const updateResize = useCallback(() => {
-    setWidth(props.width || ref.current?.offsetWidth || 0);
-  }, []);
+    setHeight(props.width || ref.current?.offsetWidth || 0);
+  }, [props.width]);
 
   useLayoutEffect(() => {
     updateResize();
-  }, []);
+  }, [updateResize]);
 
   window.addEventListener("resize", updateResize);
-
-  console.log(width);
 
   return (
     <Box
       ref={ref}
       sx={{
         position: "relative",
-        height: width,
+        height,
         overflow: "hidden",
         display: "flex",
         alignItems: "center",
       }}
     >
       <img
+        alt="preview"
         onLoad={updateResize}
         style={{
           maxWidth: "100%",

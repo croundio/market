@@ -9,7 +9,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import {
-  IsArray,
   IsBoolean,
   IsNumber,
   IsOptional,
@@ -80,6 +79,7 @@ export class Offer {
   @ApiProperty()
   createdAt: Date;
 
+  @Exclude()
   @IsOptional()
   @UpdateDateColumn()
   @ApiProperty()

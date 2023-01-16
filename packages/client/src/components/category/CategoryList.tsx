@@ -3,7 +3,7 @@ import * as React from "react";
 import { useDataProvider } from "../../provider/dataProvider";
 import { useEffect, useState } from "react";
 import { Category } from "@market/server-api";
-import { Link } from "react-router-dom";
+import { CategoryShort } from "./CategoryShort";
 
 export const CategoryList = () => {
   const { getCategories } = useDataProvider();
@@ -13,17 +13,15 @@ export const CategoryList = () => {
     getCategories().then((categories) => {
       setCategories(categories);
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box sx={{ textAlign: "center" }}>
       <Typography variant="h5">Рубрики</Typography>
       <Grid container spacing={5}>
         {categories.map((category) => (
-          <Grid item key={category.name} xs={3}>
-            <Box>
-              <Link to={`/offers/${category.slug}`}>{category.name}</Link>
-            </Box>
+          <Grid item key={category.slug} xs={3}>
+            <CategoryShort category={category} />
           </Grid>
         ))}
       </Grid>

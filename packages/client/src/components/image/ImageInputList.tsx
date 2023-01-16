@@ -1,8 +1,4 @@
-import ImageUploading, {
-  ErrorsType,
-  ImageListType,
-  ImageType,
-} from "react-images-uploading";
+import ImageUploading, { ErrorsType, ImageType } from "react-images-uploading";
 import {
   Box,
   CircularProgress,

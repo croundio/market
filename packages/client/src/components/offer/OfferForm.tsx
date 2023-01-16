@@ -26,7 +26,7 @@ export const OfferForm = ({ submitHandler, initial }: OfferFormProps) => {
     getCategories().then((categories) => {
       setCategories(categories);
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const formik = useFormik<Offer & { images: any[] }>({
     initialValues: initial || {

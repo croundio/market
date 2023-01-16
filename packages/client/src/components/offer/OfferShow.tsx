@@ -13,11 +13,11 @@ import { FavoriteButton } from "./FavoriteButton";
 import { useEffect, useState } from "react";
 import { useDataProvider } from "../../provider/dataProvider";
 import { EmailButton } from "../button/EmailButton";
-import { useProfile } from "../profile/useProfile";
 import { RouteEnum } from "../../routing/router";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { ImageCarousel } from "../image/ImageCarousel";
+import { useProfile } from "../profile/ProfileContext";
 
 type OfferShowParams = {
   offerId: number;
@@ -32,7 +32,7 @@ export const OfferShow = ({ offerId }: OfferShowParams) => {
     getOffer(offerId).then((offer: Offer) => {
       setOffer(offer);
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!offer) {
     return <Box></Box>;

@@ -12,12 +12,14 @@ import { JwtGuard } from '../auth/guard/jwt.guard';
 import { UserService } from './user.service';
 import { Offer } from '../offer/offer.entity';
 import { ApiOkResponse } from '@nestjs/swagger';
+import { Serialize } from '../decorator/serialize.decorator';
 
 @Controller('favorites')
 export class FavoriteController {
   constructor(private service: UserService) {}
 
   @Get()
+  @Serialize(Offer)
   @UseGuards(JwtGuard)
   @ApiOkResponse({ type: [Offer] })
   getFavoriteList(@User() user: PayloadDto): Promise<Offer[]> {

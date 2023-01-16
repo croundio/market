@@ -29,7 +29,7 @@ export const OfferList = ({ category }: OfferListProps) => {
       setOffers(data);
       setMore(data.length === limit);
     });
-  }, [category, limit]);
+  }, [category, limit]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box sx={{ mt: 5 }}>

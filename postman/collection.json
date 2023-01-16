@@ -1,7 +1,7 @@
 {
     "item": [
         {
-            "id": "19995ab4-8dc0-4b91-8942-e3c5786ca024",
+            "id": "50b50a34-b467-48b1-8a83-11efb1811432",
             "name": "Favorite Controller get Favorite List",
             "request": {
                 "name": "Favorite Controller get Favorite List",
@@ -17,12 +17,18 @@
                     "query": [],
                     "variable": []
                 },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
                 "method": "GET",
                 "auth": null
             },
             "response": [
                 {
-                    "id": "9c931b54-29f5-4b7c-98e6-e04ef794ada1",
+                    "id": "40057e42-281b-42b6-86ef-74eabc1e817f",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -43,12 +49,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "[\n  {\n    \"id\": -40990377.858979784,\n    \"title\": \"mollit reprehenderit eiusmod dolor\",\n    \"description\": \"consequat pariatur cupidatat veniam\",\n    \"categoryId\": 56255767.49088624,\n    \"category\": {\n      \"id\": 51683592.175133735,\n      \"name\": \"voluptate Excepteur ea commodo\",\n      \"slug\": \"cupidatat\",\n      \"image\": \"c\"\n    },\n    \"price\": -94086876.07377458,\n    \"isUsed\": true,\n    \"status\": \"WAITING\",\n    \"createdAt\": \"1953-06-02T14:23:40.603Z\",\n    \"updatedAt\": \"1985-05-01T00:08:41.699Z\",\n    \"ownerId\": 54628441.55701542,\n    \"owner\": {\n      \"id\": -54507281.63314986,\n      \"email\": \"aute cupidatat\",\n      \"name\": \"exercitation dolor enim\"\n    },\n    \"images\": [\n      \"minim fugiat irure ad pariatur\",\n      \"aliqua voluptate nisi in laboris\"\n    ],\n    \"favorites\": [\n      {\n        \"id\": -18484552.914513946,\n        \"email\": \"id \",\n        \"name\": \"occaecat\"\n      },\n      {\n        \"id\": -30973148.15031065,\n        \"email\": \"voluptate irure\",\n        \"name\": \"laboris deserunt\"\n      }\n    ]\n  },\n  {\n    \"id\": 18715251.115421206,\n    \"title\": \"incid\",\n    \"description\": \"sunt ut veniam non officia\",\n    \"categoryId\": 38160832.60518837,\n    \"category\": {\n      \"id\": -48903935.365485385,\n      \"name\": \"Lorem et nulla\",\n      \"slug\": \"eu consectetur\",\n      \"image\": \"esse quis\"\n    },\n    \"price\": 99736068.47316962,\n    \"isUsed\": false,\n    \"status\": \"WAITING\",\n    \"createdAt\": \"1970-01-04T13:04:11.462Z\",\n    \"updatedAt\": \"2004-04-08T08:40:48.858Z\",\n    \"ownerId\": 22566130.352932975,\n    \"owner\": {\n      \"id\": 96066869.00398195,\n      \"email\": \"nostrud in est\",\n      \"name\": \"cillum\"\n    },\n    \"images\": [\n      \"off\",\n      \"tempor\"\n    ],\n    \"favorites\": [\n      {\n        \"id\": 72861453.59252587,\n        \"email\": \"eu do laborum sit\",\n        \"name\": \"fugiat proident\"\n      },\n      {\n        \"id\": -89498538.25044075,\n        \"email\": \"reprehenderit nulla tempor do dolore\",\n        \"name\": \"laborum in culpa commodo sunt\"\n      }\n    ]\n  }\n]",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -57,7 +63,7 @@
             }
         },
         {
-            "id": "eaca8671-19fd-468a-bc09-e94ddcdec8f3",
+            "id": "356b79e8-aab8-4676-adb9-81f4be1e5793",
             "name": "Favorite Controller set Favorite",
             "request": {
                 "name": "Favorite Controller set Favorite",
@@ -77,7 +83,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "44449935.39510983",
+                            "value": "64782238.72882339",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -88,7 +94,7 @@
             },
             "response": [
                 {
-                    "id": "68c502c8-e97e-4230-8e7f-7a3e56b16ba5",
+                    "id": "12028bbc-f699-433a-9208-0368abb355c6",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -105,7 +111,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "44449935.39510983",
+                                    "value": "64782238.72882339",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -133,7 +139,7 @@
             }
         },
         {
-            "id": "d23e8ddc-86bc-4dd2-a246-9846b98c96b5",
+            "id": "fd7f9608-2e68-43e1-8da2-2b370c786d73",
             "name": "Favorite Controller unset Favorite",
             "request": {
                 "name": "Favorite Controller unset Favorite",
@@ -153,7 +159,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "44449935.39510983",
+                            "value": "64782238.72882339",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -164,7 +170,7 @@
             },
             "response": [
                 {
-                    "id": "3681defe-df19-4e4f-a22e-85fc68f93989",
+                    "id": "57d7ceb6-12c7-4b93-b63e-4695c0629ef5",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -181,7 +187,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "44449935.39510983",
+                                    "value": "64782238.72882339",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -209,7 +215,7 @@
             }
         },
         {
-            "id": "2f58b8c1-0109-4db9-a612-e128510065de",
+            "id": "2fb5e264-a754-4f81-b1e0-308bffb7bfa8",
             "name": "Profile Controller get Profile",
             "request": {
                 "name": "Profile Controller get Profile",
@@ -225,12 +231,18 @@
                     "query": [],
                     "variable": []
                 },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
                 "method": "GET",
                 "auth": null
             },
             "response": [
                 {
-                    "id": "98409e8e-c435-4590-b91d-ac74d7487e64",
+                    "id": "19e19c4a-e2f4-4fe7-9307-9695ef55de4e",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -251,12 +263,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "{\n  \"id\": 63402382.53537983,\n  \"email\": \"cupidatat culpa non Excepteur velit\",\n  \"name\": \"sunt\"\n}",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -265,7 +277,7 @@
             }
         },
         {
-            "id": "1de4431b-094d-4c31-94fe-385053e5e5fb",
+            "id": "0bd938f3-6ab5-41eb-97b7-e0389c771107",
             "name": "Profile Controller update Profile",
             "request": {
                 "name": "Profile Controller update Profile",
@@ -285,6 +297,10 @@
                     {
                         "key": "Content-Type",
                         "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
                     }
                 ],
                 "method": "PATCH",
@@ -301,7 +317,7 @@
             },
             "response": [
                 {
-                    "id": "04f19c92-9bca-4943-a50c-b587940660aa",
+                    "id": "7427d8bb-296a-4516-8726-67444ac70691",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -330,12 +346,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "{\n  \"id\": 63402382.53537983,\n  \"email\": \"cupidatat culpa non Excepteur velit\",\n  \"name\": \"sunt\"\n}",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -344,7 +360,7 @@
             }
         },
         {
-            "id": "3369a18f-e4a6-4484-94bc-3ef6a98f0bc3",
+            "id": "695289ee-b27e-4581-a262-736d8d4c36d3",
             "name": "Offer Controller get List",
             "request": {
                 "name": "Offer Controller get List",
@@ -360,12 +376,18 @@
                     "query": [],
                     "variable": []
                 },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
                 "method": "GET",
                 "auth": null
             },
             "response": [
                 {
-                    "id": "8050d29e-402e-48f0-a379-15cd2ea1faaf",
+                    "id": "aefd6923-ed6c-4fae-895b-6a4dbd304fb4",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -386,12 +408,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "[\n  {\n    \"id\": -92911035.65965004,\n    \"title\": \"deserunt exercitation\",\n    \"description\": \"in lab\",\n    \"categoryId\": 75558631.34134278,\n    \"category\": {\n      \"id\": -67184334.83129011,\n      \"name\": \"enim sin\",\n      \"slug\": \"fugiat in irure eiusmod adipisicing\",\n      \"image\": \"culpa sit aliqua\"\n    },\n    \"price\": 58335941.54884398,\n    \"isUsed\": true,\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"1979-03-08T12:37:21.564Z\",\n    \"updatedAt\": \"2001-11-15T11:20:03.328Z\",\n    \"ownerId\": -25861211.620991707,\n    \"owner\": {\n      \"id\": -71326992.35924523,\n      \"email\": \"do Duis in laboris\",\n      \"name\": \"cillum ex non\"\n    },\n    \"images\": [\n      \"nostrud\",\n      \"proident exercitation Ut commodo\"\n    ],\n    \"favorites\": [\n      {\n        \"id\": -24513338.598068967,\n        \"email\": \"ex dolore irure\",\n        \"name\": \"deserunt dolor Ut\"\n      },\n      {\n        \"id\": 54003558.30050075,\n        \"email\": \"ut minim nulla amet\",\n        \"name\": \"elit velit dolor\"\n      }\n    ]\n  },\n  {\n    \"id\": -43624388.430115424,\n    \"title\": \"ut et\",\n    \"description\": \"in\",\n    \"categoryId\": 42292482.33239749,\n    \"category\": {\n      \"id\": 20227770.906718507,\n      \"name\": \"sed tempor cupidatat reprehenderit\",\n      \"slug\": \"ut ut ex iru\",\n      \"image\": \"Duis occaecat\"\n    },\n    \"price\": 85530316.4549996,\n    \"isUsed\": false,\n    \"status\": \"DEACTIVATE\",\n    \"createdAt\": \"1959-10-04T16:11:49.436Z\",\n    \"updatedAt\": \"2016-11-01T03:24:22.175Z\",\n    \"ownerId\": -71027983.61612494,\n    \"owner\": {\n      \"id\": -84869131.09123346,\n      \"email\": \"voluptate eu\",\n      \"name\": \"magna qui et\"\n    },\n    \"images\": [\n      \"ut enim\",\n      \"voluptate amet\"\n    ],\n    \"favorites\": [\n      {\n        \"id\": -2766545.571746841,\n        \"email\": \"amet laborum dolor exercitation occaecat\",\n        \"name\": \"non\"\n      },\n      {\n        \"id\": -22617115.450632676,\n        \"email\": \"non aute\",\n        \"name\": \"adipisicing cupidatat irure commodo\"\n      }\n    ]\n  }\n]",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -400,7 +422,7 @@
             }
         },
         {
-            "id": "e77366c6-42d4-427a-bd39-8551e6b48398",
+            "id": "483c3343-e801-492d-a94b-532a3d1f6d41",
             "name": "Offer Controller create",
             "request": {
                 "name": "Offer Controller create",
@@ -420,13 +442,17 @@
                     {
                         "key": "Content-Type",
                         "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
                     }
                 ],
                 "method": "POST",
                 "auth": null,
                 "body": {
                     "mode": "raw",
-                    "raw": "{}",
+                    "raw": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -436,7 +462,7 @@
             },
             "response": [
                 {
-                    "id": "651fb75d-d605-4f52-b8fa-64e62c46df89",
+                    "id": "72249f4d-9c62-4947-8a1a-01db0f8baeb9",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -452,7 +478,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{}",
+                            "raw": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -460,17 +486,17 @@
                             }
                         }
                     },
-                    "status": "Created",
-                    "code": 201,
+                    "status": "OK",
+                    "code": 200,
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -479,7 +505,7 @@
             }
         },
         {
-            "id": "264b8517-f287-4d64-9fd8-8870e0e3e987",
+            "id": "2af383d0-0219-4d47-a7fe-1c7acdb5032b",
             "name": "Offer Controller get Own List",
             "request": {
                 "name": "Offer Controller get Own List",
@@ -496,12 +522,18 @@
                     "query": [],
                     "variable": []
                 },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
                 "method": "GET",
                 "auth": null
             },
             "response": [
                 {
-                    "id": "cda70d05-5513-4f90-963d-1b51f9dd2d8d",
+                    "id": "02cddbb3-ea54-4cc8-8104-1940d2d2e572",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -523,12 +555,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "[\n  {\n    \"id\": -92911035.65965004,\n    \"title\": \"deserunt exercitation\",\n    \"description\": \"in lab\",\n    \"categoryId\": 75558631.34134278,\n    \"category\": {\n      \"id\": -67184334.83129011,\n      \"name\": \"enim sin\",\n      \"slug\": \"fugiat in irure eiusmod adipisicing\",\n      \"image\": \"culpa sit aliqua\"\n    },\n    \"price\": 58335941.54884398,\n    \"isUsed\": true,\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"1979-03-08T12:37:21.564Z\",\n    \"updatedAt\": \"2001-11-15T11:20:03.328Z\",\n    \"ownerId\": -25861211.620991707,\n    \"owner\": {\n      \"id\": -71326992.35924523,\n      \"email\": \"do Duis in laboris\",\n      \"name\": \"cillum ex non\"\n    },\n    \"images\": [\n      \"nostrud\",\n      \"proident exercitation Ut commodo\"\n    ],\n    \"favorites\": [\n      {\n        \"id\": -24513338.598068967,\n        \"email\": \"ex dolore irure\",\n        \"name\": \"deserunt dolor Ut\"\n      },\n      {\n        \"id\": 54003558.30050075,\n        \"email\": \"ut minim nulla amet\",\n        \"name\": \"elit velit dolor\"\n      }\n    ]\n  },\n  {\n    \"id\": -43624388.430115424,\n    \"title\": \"ut et\",\n    \"description\": \"in\",\n    \"categoryId\": 42292482.33239749,\n    \"category\": {\n      \"id\": 20227770.906718507,\n      \"name\": \"sed tempor cupidatat reprehenderit\",\n      \"slug\": \"ut ut ex iru\",\n      \"image\": \"Duis occaecat\"\n    },\n    \"price\": 85530316.4549996,\n    \"isUsed\": false,\n    \"status\": \"DEACTIVATE\",\n    \"createdAt\": \"1959-10-04T16:11:49.436Z\",\n    \"updatedAt\": \"2016-11-01T03:24:22.175Z\",\n    \"ownerId\": -71027983.61612494,\n    \"owner\": {\n      \"id\": -84869131.09123346,\n      \"email\": \"voluptate eu\",\n      \"name\": \"magna qui et\"\n    },\n    \"images\": [\n      \"ut enim\",\n      \"voluptate amet\"\n    ],\n    \"favorites\": [\n      {\n        \"id\": -2766545.571746841,\n        \"email\": \"amet laborum dolor exercitation occaecat\",\n        \"name\": \"non\"\n      },\n      {\n        \"id\": -22617115.450632676,\n        \"email\": \"non aute\",\n        \"name\": \"adipisicing cupidatat irure commodo\"\n      }\n    ]\n  }\n]",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -537,7 +569,73 @@
             }
         },
         {
-            "id": "e43bcb28-4d8f-443e-b9fe-ec3bec71a41b",
+            "id": "c0657d3f-ae87-4b3b-b765-a89dd7b44369",
+            "name": "Offer Controller get Own Count",
+            "request": {
+                "name": "Offer Controller get Own Count",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        "own",
+                        "count"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "99b35035-ee68-4708-9e82-7dfaae7ae6e2",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                "own",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "eb2ecff3-ff7d-4d92-9716-5568dfe4ea18",
             "name": "Offer Controller get One",
             "request": {
                 "name": "Offer Controller get One",
@@ -556,18 +654,24 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "44449935.39510983",
+                            "value": "64782238.72882339",
                             "key": "offerId",
                             "description": "(Required) "
                         }
                     ]
                 },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
                 "method": "GET",
                 "auth": null
             },
             "response": [
                 {
-                    "id": "7da9b5f8-1598-45d6-93f8-61020dd568ef",
+                    "id": "d948c067-bf05-42b9-a322-d38a79abc5e3",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -583,7 +687,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "44449935.39510983",
+                                    "value": "64782238.72882339",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -597,12 +701,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -611,7 +715,7 @@
             }
         },
         {
-            "id": "37e25457-49ae-4475-9265-cde8afd4bf1e",
+            "id": "9199de6e-fc06-42db-8bc8-ca2175285f0b",
             "name": "Offer Controller update",
             "request": {
                 "name": "Offer Controller update",
@@ -630,7 +734,7 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "44449935.39510983",
+                            "value": "64782238.72882339",
                             "key": "offerId",
                             "description": "(Required) "
                         }
@@ -640,13 +744,17 @@
                     {
                         "key": "Content-Type",
                         "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
                     }
                 ],
                 "method": "PATCH",
                 "auth": null,
                 "body": {
                     "mode": "raw",
-                    "raw": "{}",
+                    "raw": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -656,7 +764,7 @@
             },
             "response": [
                 {
-                    "id": "62536c47-fdd3-4121-bef4-2a677215d830",
+                    "id": "e13d9571-7894-4294-a70b-eab23e9033d7",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -672,7 +780,7 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "44449935.39510983",
+                                    "value": "64782238.72882339",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
@@ -681,7 +789,7 @@
                         "method": "PATCH",
                         "body": {
                             "mode": "raw",
-                            "raw": "{}",
+                            "raw": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -694,12 +802,12 @@
                     "header": [
                         {
                             "key": "Content-Type",
-                            "value": "text/plain"
+                            "value": "application/json"
                         }
                     ],
-                    "body": "",
+                    "body": "{\n  \"id\": -69364677.34811181,\n  \"title\": \"exercitation amet aliqua commodo deserunt\",\n  \"description\": \"exercitation irure tempor offici\",\n  \"categoryId\": 20936015.540168375,\n  \"category\": {\n    \"id\": -72454004.41649972,\n    \"name\": \"ipsum Duis\",\n    \"slug\": \"minim dolor et proident\",\n    \"image\": \"aliquip dolor labore commodo\"\n  },\n  \"price\": -8373613.912057683,\n  \"isUsed\": true,\n  \"status\": \"WAITING\",\n  \"createdAt\": \"1964-04-15T06:14:09.333Z\",\n  \"updatedAt\": \"1948-01-01T07:31:46.452Z\",\n  \"ownerId\": -57857297.80591335,\n  \"owner\": {\n    \"id\": 3095064.463624373,\n    \"email\": \"non aliquip eu fugiat\",\n    \"name\": \"magna minim\"\n  },\n  \"images\": [\n    \"an\",\n    \"amet\"\n  ],\n  \"favorites\": [\n    {\n      \"id\": -52744449.259403445,\n      \"email\": \"Duis consequat laboris nostrud\",\n      \"name\": \"anim\"\n    },\n    {\n      \"id\": -26369338.85173574,\n      \"email\": \"dolor sint esse minim\",\n      \"name\": \"ipsum aute\"\n    }\n  ]\n}",
                     "cookie": [],
-                    "_postman_previewlanguage": "text"
+                    "_postman_previewlanguage": "json"
                 }
             ],
             "event": [],
@@ -708,7 +816,7 @@
             }
         },
         {
-            "id": "905dbbe5-5203-4e2f-b0d0-cdba82e44f97",
+            "id": "cd5b4311-d532-4508-b46d-2d8f88dcec05",
             "name": "Offer Controller delete",
             "request": {
                 "name": "Offer Controller delete",
@@ -727,18 +835,24 @@
                         {
                             "disabled": false,
                             "type": "any",
-                            "value": "44449935.39510983",
+                            "value": "64782238.72882339",
                             "key": "offerId",
                             "description": "(Required) "
                         }
                     ]
                 },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
                 "method": "DELETE",
                 "auth": null
             },
             "response": [
                 {
-                    "id": "cc68f689-ccb1-432b-a867-aae686eae047",
+                    "id": "419beb48-b566-4a2f-822b-c646fc993c18",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -754,13 +868,89 @@
                                 {
                                     "disabled": false,
                                     "type": "any",
-                                    "value": "44449935.39510983",
+                                    "value": "64782238.72882339",
                                     "key": "offerId",
                                     "description": "(Required) "
                                 }
                             ]
                         },
                         "method": "DELETE",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "{}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "bb955247-13ea-4aca-b0b3-1912234425b4",
+            "name": "Offer Controller activate",
+            "request": {
+                "name": "Offer Controller activate",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        ":offerId",
+                        "activate"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "64782238.72882339",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "e8b46d1a-dc8f-42ed-a14f-94f435908687",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                ":offerId",
+                                "activate"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "64782238.72882339",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
                         "body": {}
                     },
                     "status": "OK",
@@ -782,7 +972,145 @@
             }
         },
         {
-            "id": "7fe46434-1182-4eea-a8a2-e67ad4af7b88",
+            "id": "719283ca-e92f-431e-84a3-544e54a6e977",
+            "name": "Offer Controller deactivate",
+            "request": {
+                "name": "Offer Controller deactivate",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "offers",
+                        ":offerId",
+                        "deactivate"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": [
+                        {
+                            "disabled": false,
+                            "type": "any",
+                            "value": "64782238.72882339",
+                            "key": "offerId",
+                            "description": "(Required) "
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "1e457d0b-95e9-4708-9525-39c615ec16db",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "offers",
+                                ":offerId",
+                                "deactivate"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "disabled": false,
+                                    "type": "any",
+                                    "value": "64782238.72882339",
+                                    "key": "offerId",
+                                    "description": "(Required) "
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "body": "",
+                    "cookie": [],
+                    "_postman_previewlanguage": "text"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "8e2f5c2b-c6f1-44fb-88bd-542c0d71fc25",
+            "name": "Storage Controller create Image",
+            "request": {
+                "name": "Storage Controller create Image",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "storage"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "POST",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "72a62048-f790-408f-ab96-5f8a76c1aa2c",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "storage"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "\"Ut sunt cupidatat\"",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
+        },
+        {
+            "id": "91a21c26-f609-4e94-a3d2-b8a93fda3e74",
             "name": "Auth Controller google Login",
             "request": {
                 "name": "Auth Controller google Login",
@@ -804,7 +1132,7 @@
             },
             "response": [
                 {
-                    "id": "7def536d-5ad6-4b15-9c2f-abdc045c9167",
+                    "id": "3aa6999d-f98d-4536-b860-b5d7b47db783",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -840,7 +1168,7 @@
             }
         },
         {
-            "id": "bb4c64e4-19d0-4af3-93e7-c397085ab34a",
+            "id": "edd1d691-e7a2-4475-9f8a-ee9b1f370e01",
             "name": "Auth Controller google Redirect",
             "request": {
                 "name": "Auth Controller google Redirect",
@@ -863,7 +1191,7 @@
             },
             "response": [
                 {
-                    "id": "6d836d76-6ba3-401e-9c59-47161b5ae9f9",
+                    "id": "65ee0332-fd70-4772-9833-3ca8934e4a89",
                     "originalRequest": {
                         "url": {
                             "path": [
@@ -898,6 +1226,68 @@
             "protocolProfileBehavior": {
                 "disableBodyPruning": true
             }
+        },
+        {
+            "id": "5607d17e-4d6d-47ba-8f4d-a637c4798371",
+            "name": "Category Controller get List",
+            "request": {
+                "name": "Category Controller get List",
+                "description": {},
+                "url": {
+                    "path": [
+                        "api",
+                        "categories"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "GET",
+                "auth": null
+            },
+            "response": [
+                {
+                    "id": "6cafc74f-a821-4e6a-a6c4-567b6081fb12",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "api",
+                                "categories"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "GET",
+                        "body": {}
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "body": "[\n  {\n    \"id\": 12994515.963389471,\n    \"name\": \"cupidatat dolor ipsum pariatur consectetur\",\n    \"slug\": \"magna\",\n    \"image\": \"id irure\"\n  },\n  {\n    \"id\": -99081140.23737067,\n    \"name\": \"amet elit\",\n    \"slug\": \"offici\",\n    \"image\": \"proident anim\"\n  }\n]",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                }
+            ],
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
         }
     ],
     "event": [],
@@ -909,7 +1299,7 @@
         }
     ],
     "info": {
-        "_postman_id": "43feaeb3-e29a-4ca9-bb84-930d0f13c137",
+        "_postman_id": "2105f1f2-6401-40d5-8352-09f595e5e792",
         "name": "Cround Compiler API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

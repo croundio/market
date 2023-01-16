@@ -402,12 +402,16 @@
           },
           "slug": {
             "type": "string"
+          },
+          "image": {
+            "type": "string"
           }
         },
         "required": [
           "id",
           "name",
-          "slug"
+          "slug",
+          "image"
         ]
       },
       "OfferStatusEnum": {

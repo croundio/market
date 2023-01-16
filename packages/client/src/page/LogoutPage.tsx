@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { AppBarLayout } from "../components/layout/AppBarLayout";
 import * as React from "react";
-import { useProfile } from "../components/profile/useProfile";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useProfile } from "../components/profile/ProfileContext";
 
 export const LogoutPage = () => {
   const { logout } = useProfile();
@@ -12,7 +12,7 @@ export const LogoutPage = () => {
   useEffect(() => {
     logout();
     navigate("/");
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <AppBarLayout>

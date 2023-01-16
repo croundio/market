@@ -7,21 +7,25 @@ const categories: Partial<Category>[] = [
   {
     id: 1,
     name: 'Телефони',
+    image: 'http://localhost:9911/market/phone.png',
     slug: 'phone',
   },
   {
     id: 2,
     name: 'Авто',
+    image: 'http://localhost:9911/market/car.png',
     slug: 'auto',
   },
   {
     id: 3,
-    name: 'Нерухомість',
-    slug: 'realty',
+    name: 'Одяг',
+    image: 'http://localhost:9911/market/clothes.png',
+    slug: 'clothes',
   },
   {
     id: 4,
     name: 'Інше',
+    image: 'http://localhost:9911/market/other.png',
     slug: 'other',
   },
 ];

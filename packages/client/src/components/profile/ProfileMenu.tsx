@@ -3,12 +3,12 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useProfile } from "./useProfile";
 import { RouteEnum, routing } from "../../routing/router";
 import { useEffect } from "react";
 import { OfferStatusEnum } from "@market/server-api";
+import { useProfile } from "./ProfileContext";
 
 export const ProfileMenu = () => {
   const { profile } = useProfile();
@@ -27,6 +27,8 @@ export const ProfileMenu = () => {
   };
 
   useEffect(() => {}, [profile]);
+
+  if (!profile) return <Box>Профіль не знайдено</Box>;
 
   return (
     <div>

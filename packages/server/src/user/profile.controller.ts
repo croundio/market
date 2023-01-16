@@ -6,6 +6,7 @@ import { UserService } from './user.service';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ApiOkResponse } from '@nestjs/swagger';
 import { User as UserEntity } from './user.entity';
+import { Serialize } from '../decorator/serialize.decorator';
 
 @Controller('profile')
 export class ProfileController {
@@ -13,6 +14,7 @@ export class ProfileController {
 
   @Get()
   @UseGuards(JwtGuard)
+  @Serialize(UserEntity)
   @ApiOkResponse({ type: UserEntity })
   getProfile(@User() user: PayloadDto) {
     return this.service.getProfile(user.id);
@@ -20,8 +22,12 @@ export class ProfileController {
 
   @Patch()
   @UseGuards(JwtGuard)
+  @Serialize(UserEntity)
   @ApiOkResponse({ type: UserEntity })
-  updateProfile(@User() user: PayloadDto, @Body() dto: UpdateProfileDto) {
+  updateProfile(
+    @User() user: PayloadDto,
+    @Body() dto: UpdateProfileDto,
+  ): Promise<UserEntity> {
     return this.service.updateProfile(user.id, dto);
   }
 }

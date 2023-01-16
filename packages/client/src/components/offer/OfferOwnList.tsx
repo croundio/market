@@ -27,13 +27,13 @@ export const OfferOwnList = () => {
     getOwnOffers(status).then((data) => {
       setOffers(data);
     });
-  }, [status]);
+  }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     getOwnOffersCount().then((data: object) => {
       setOfferCount(data);
     });
-  }, [status]);
+  }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box>

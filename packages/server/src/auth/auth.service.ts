@@ -4,7 +4,6 @@ import { PayloadDto } from './dto/payload.dto';
 import { JwtService } from '@nestjs/jwt';
 import { User } from '../user/user.entity';
 import { RegisterGoogleUserDto } from '../user/dto/register-google-user.dto';
-import { LoginSerialize } from './serialize/login.serialize';
 
 @Injectable()
 export class AuthService {
@@ -21,9 +20,7 @@ export class AuthService {
     return isActive;
   }
 
-  async loginOrRegister(
-    googleUser: RegisterGoogleUserDto,
-  ): Promise<LoginSerialize> {
+  async loginOrRegister(googleUser: RegisterGoogleUserDto) {
     let user: User;
     try {
       user = await this.userService.findOne({

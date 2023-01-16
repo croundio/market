@@ -20,7 +20,7 @@ export const OfferEdit = ({ offerId }: OfferEditProps) => {
 
   useEffect(() => {
     getOffer(offerId).then((offer) => setOffer(offer));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const submitHandler = (values: Offer) => {
     updateOffer(offerId, values).then((result: any) => {
