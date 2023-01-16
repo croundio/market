@@ -9,7 +9,7 @@ export const MainPage = () => {
 
   return (
     <AppBarLayout>
-      <CategoryList />
+      <CategoryList category={category} />
       <OfferList category={category} />
     </AppBarLayout>
   );

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Offer, OfferStatusEnum } from "@market/server-api";
 import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
 import { OfferOwnShort } from "./OfferOwnShort";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { RouteEnum, routing } from "../../routing/router";
 
 export const OfferOwnList = () => {
@@ -14,7 +14,7 @@ export const OfferOwnList = () => {
   };
 
   const [offerCount, setOfferCount] = useState<any>({});
-  const [offers, setOffers] = useState<Offer[]>([]);
+  const [offers, setOffers] = useState<Offer[]>();
   const { getOwnOffers, getOwnOffersCount } = useDataProvider();
   const handleChange = (
     event: React.SyntheticEvent,
@@ -62,13 +62,22 @@ export const OfferOwnList = () => {
           value={OfferStatusEnum.CANCELED}
         />
       </Tabs>
+      {offers && !offers.length && <EmptyList />}
       <Grid container spacing={3}>
-        {offers.map((offer) => (
-          <Grid item key={offer.id} xs={12}>
-            <OfferOwnShort key={offer.id} offer={offer} />
-          </Grid>
-        ))}
+        {offers &&
+          offers.map((offer) => (
+            <Grid item key={offer.id} xs={12}>
+              <OfferOwnShort key={offer.id} offer={offer} />
+            </Grid>
+          ))}
       </Grid>
     </Box>
   );
 };
+
+const EmptyList = () => (
+  <Box sx={{ m: 5, textAlign: "center" }}>
+    <Typography variant="h5">Hемає оголошень.</Typography>
+    <Link to={RouteEnum.OFFERS_CREATE}>Подати оголошення</Link>
+  </Box>
+);

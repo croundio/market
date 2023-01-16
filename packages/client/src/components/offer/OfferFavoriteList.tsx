@@ -4,9 +4,12 @@ import { Offer } from "@market/server-api";
 import { Box, Grid, Typography } from "@mui/material";
 import { OfferShort } from "./OfferShort";
 import * as React from "react";
+import { Link } from "react-router-dom";
+import { RouteEnum } from "../../routing/router";
+import { Loader } from "../loader/Loader";
 
 export const OfferFavoriteList = () => {
-  const [offers, setOffers] = useState<Offer[]>([]);
+  const [offers, setOffers] = useState<Offer[]>();
   const { getFavoriteOffers } = useDataProvider();
 
   useEffect(() => {
@@ -15,11 +18,19 @@ export const OfferFavoriteList = () => {
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  if (!offers) {
+    return <Loader />;
+  }
+
+  if (!offers.length) {
+    return <EmptyList />;
+  }
+
   return (
     <Box>
       <Typography variant="h5">Обрані Оголошення</Typography>
       <Grid container spacing={3}>
-        {offers.map((offer) => (
+        {offers?.map((offer) => (
           <Grid item key={offer.id} xs={12}>
             <OfferShort
               key={offer.id}
@@ -33,3 +44,12 @@ export const OfferFavoriteList = () => {
     </Box>
   );
 };
+
+const EmptyList = () => (
+  <Box sx={{ m: 5, textAlign: "center" }}>
+    <Typography variant="h5">У вас поки немає обраних оголошень.</Typography>
+    <Typography>
+      Перейти до <Link to={RouteEnum.MAIN}>списку оголошень</Link>
+    </Typography>
+  </Box>
+);

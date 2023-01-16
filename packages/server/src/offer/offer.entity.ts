@@ -40,7 +40,7 @@ export class Offer {
   @ApiProperty()
   description: string;
 
-  @IsNumber({}, { message: 'Рубрика має бути вибрана із поточних' })
+  @IsNumber({}, { message: 'Категорія має бути вибрана із поточних' })
   @Column('int')
   @ApiProperty()
   categoryId: number;

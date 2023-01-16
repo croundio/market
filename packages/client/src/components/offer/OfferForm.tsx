@@ -57,7 +57,7 @@ export const OfferForm = ({ submitHandler, initial }: OfferFormProps) => {
           <TextField
             name="categoryId"
             select
-            label="Рубрика"
+            label="Категорія"
             value={formik.values.categoryId}
             onChange={formik.handleChange}
           >
