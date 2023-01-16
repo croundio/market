@@ -22,7 +22,6 @@ type ImageInputProps = {
   acceptType?: string[];
   value: string[];
   onChange: (images: string[]) => void;
-  imageHeight?: number;
 };
 
 export const ImageInputList = ({
@@ -31,7 +30,6 @@ export const ImageInputList = ({
   acceptType = ["jpg", "png"],
   value: imageList = [],
   onChange,
-  imageHeight = 130,
 }: ImageInputProps) => {
   const [refresh, setRefresh] = useState(1);
   const { createImage } = useDataProvider();
@@ -116,7 +114,6 @@ export const ImageInputList = ({
                       image={image}
                       onUpdate={() => onImageUpdate(index)}
                       onRemove={() => handleRemove(index)}
-                      imageHeight={imageHeight}
                     />
                   </Grid>
                 ))}
@@ -161,16 +158,9 @@ type ImagePreviewProps = {
   image: ImageType;
   onUpdate: () => void;
   onRemove: () => void;
-  imageHeight?: number;
 };
 
-const ImagePreview = ({
-  image,
-  onRemove,
-  onUpdate,
-  imageHeight = 130,
-}: ImagePreviewProps) => {
-  console.log(image.dataURL);
+const ImagePreview = ({ image, onRemove, onUpdate }: ImagePreviewProps) => {
   const [focused, setFocused] = useState(false);
   const handleFocus = useCallback(
     (focused: boolean) => () => {

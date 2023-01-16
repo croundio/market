@@ -35,8 +35,6 @@ export class OfferRepository extends Repository<Offer> {
       qb.andWhere('category.slug = :slug', { slug: params.category });
     }
 
-    console.log(qb.getQueryAndParameters());
-
     return qb.getMany();
   }
 

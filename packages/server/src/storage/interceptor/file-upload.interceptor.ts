@@ -18,12 +18,9 @@ export class FileUploadInterceptor implements NestInterceptor {
     const { body } = context.switchToHttp().getRequest();
     const { files } = body;
 
-    console.log(body);
-
     if (files?.length) {
       for await (const file of files) {
         const url = await this.storageService.upload(file);
-        console.log(url);
       }
     }
 

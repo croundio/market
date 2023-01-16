@@ -8,7 +8,7 @@ import { RouteEnum } from "../routing/router";
 import { useProfile } from "../components/profile/ProfileContext";
 
 export const LoginGooglePage = () => {
-  const { setToken, refreshProfile, profile } = useProfile();
+  const { setToken, refreshProfile } = useProfile();
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -18,7 +18,6 @@ export const LoginGooglePage = () => {
     if (parsed.access_token) {
       setToken(parsed.access_token as string);
       refreshProfile().then(() => {
-        console.log(profile);
         navigate(RouteEnum.MAIN);
       });
     }

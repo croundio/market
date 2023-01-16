@@ -7,8 +7,6 @@ export const useRequireLogged = () => {
   const { profile } = useProfile();
   const navigate = useNavigate();
 
-  console.log(profile);
-
   useEffect(() => {
     if (!profile) {
       navigate(RouteEnum.LOGIN);
